@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "../../../lib/prismadb";
 import EmailProvider from "next-auth/providers/email";
-// import GitHubProvider from "next-auth/providers/github";
+import GitHubProvider from "next-auth/providers/github";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -16,10 +16,10 @@ export default NextAuth({
       server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM,
     }),
-    // GitHubProvider({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
   ],
   callbacks: {
     session: async ({ session, token }) => {
