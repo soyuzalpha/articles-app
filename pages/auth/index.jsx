@@ -95,9 +95,9 @@ const index = () => {
               <Button leftIcon={<FcGoogle />} onClick={googleLogin}>
                 Continue with Google
               </Button>
-              {/* <Button leftIcon={<BsGithub />} onClick={githubLogin}>
+              <Button leftIcon={<BsGithub />} onClick={githubLogin}>
                 Continue with Github
-              </Button> */}
+              </Button>
             </Stack>
           </Box>
         </Box>
