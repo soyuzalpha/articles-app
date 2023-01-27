@@ -29,11 +29,11 @@
     "react-hook-form": "^7.41.1",
     "react-icons": "^4.7.1",
     "react-render-markup": "^3.5.0",
-    "sanitize-html": "^2.8.1",
     "swr": "^2.0.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.2",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "eslint": "^8.30.0",

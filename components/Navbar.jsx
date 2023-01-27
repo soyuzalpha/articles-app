@@ -26,9 +26,11 @@ const Navbar = () => {
     <Container maxW="1000px" padding={4} marginBottom={3}>
       <Box display="flex" justifyContent="space-between">
         <Box display="flex" justifyContent="center" alignItems="center">
-          <Text fontWeight="bold" fontSize="xl">
-            A R T I C E L S
-          </Text>
+          <Link href="/">
+            <Text fontWeight="bold" fontSize="xl">
+              A R T I C E L S
+            </Text>
+          </Link>
         </Box>
 
         <Box

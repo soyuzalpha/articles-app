@@ -1,11 +1,20 @@
 import React from "react";
-import { Box, Button, SimpleGrid, SkeletonText, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  SimpleGrid,
+  SkeletonText,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import useSwr from "swr";
 import Link from "next/link";
 import { BsBookmarkFill } from "react-icons/bs";
 import { useSession } from "next-auth/react";
+import { motion } from "framer-motion";
 
 const Posts = () => {
+  const toast = useToast();
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSwr("/api/post/getAll", fetcher);
   const session = useSession();
@@ -30,6 +39,15 @@ const Posts = () => {
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
     });
+
+    toast({
+      title: "Saved to favourites.",
+      // description: "We've created your account for you.",
+      status: "success",
+      duration: 3000,
+      isClosable: false,
+      position: "bottom-left",
+    });
   };
 
   return (
@@ -48,6 +66,7 @@ const Posts = () => {
         {data &&
           data.map((item, key) => (
             <Box
+              as={motion.div}
               key={key}
               rounded="md"
               boxShadow="lg"
@@ -56,6 +75,8 @@ const Posts = () => {
               display="flex"
               justifyContent="center"
               flexDirection="column"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400 }}
             >
               <Link href={`/post/${item.id}`}>
                 <Box>

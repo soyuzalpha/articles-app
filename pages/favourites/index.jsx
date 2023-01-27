@@ -8,20 +8,32 @@ import {
   Container,
   Link,
   SimpleGrid,
+  SkeletonText,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { BsTrash } from "react-icons/bs";
 
 const index = () => {
+  const toast = useToast();
   const { data: session } = useSession();
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data } = useSwr(
+  const { data, error } = useSwr(
     `/api/post/favourites/${session?.user?.id}`,
     fetcher,
     {
       refreshInterval: 1000,
     }
   );
+
+  if (error) return <div>Failed to load</div>;
+  if (!data) {
+    return (
+      <Container maxW="1000px" position="relative" padding={1} boxShadow="lg">
+        <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+      </Container>
+    );
+  }
 
   const deleteFav = async (id) => {
     try {
@@ -47,7 +59,7 @@ const index = () => {
         <Box>
           <Text
             fontWeight="semibold"
-            fontSize={["xl", "xl", "3xl", "3xl"]}
+            fontSize={["md", "md", "md", "md"]}
             marginY="3"
           >
             My Favourites
@@ -79,7 +91,20 @@ const index = () => {
                 </Link>
 
                 <Box>
-                  <Button variant="link" onClick={() => deleteFav(item.id)}>
+                  <Button
+                    variant="link"
+                    onClick={() => {
+                      deleteFav(item.id),
+                        toast({
+                          title: "Deleted from favourites.",
+                          // description: "We've created your account for you.",
+                          status: "success",
+                          duration: 3000,
+                          isClosable: false,
+                          position: "bottom-left",
+                        });
+                    }}
+                  >
                     <BsTrash />
                   </Button>
                 </Box>

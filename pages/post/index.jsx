@@ -81,6 +81,7 @@ const createPost = () => {
                 <Editor
                   onChange={handleChange}
                   description="Type content here"
+                  active={false}
                 />
               </FormControl>
             </VStack>

@@ -176,7 +176,7 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-export default ({ description, onChange }) => {
+export default ({ description, onChange, isParent, editable, active }) => {
   const color = useColorModeValue("black", "gray.400");
 
   const editor = useEditor({
@@ -190,14 +190,27 @@ export default ({ description, onChange }) => {
       onChange(editor.getHTML());
     },
     content: description,
+    editable: editable,
   });
 
   return (
     <Box borderColor={color} borderRadius="lg">
-      <Box marginBottom={2} border="2px solid" borderColor={color}>
-        <MenuBar editor={editor} />
-      </Box>
-      <EditorContent editor={editor} onChange={onChange} />
+      {isParent ? (
+        <Box marginBottom={2} border="2px solid" borderColor={color}>
+          <MenuBar editor={editor} />
+        </Box>
+      ) : null}
+
+      <EditorContent
+        editor={editor}
+        onChange={onChange}
+        style={
+          active
+            ? { border: "none", padding: "0px" }
+            : { border: "1px solid white", padding: "20px" }
+        }
+        // style={{ border: "none" }}
+      />
     </Box>
   );
 };
