@@ -25,40 +25,31 @@ const Navbar = () => {
   const color = useColorModeValue('white', '#1d1d1d');
 
   return (
-    <Box bg={color} boxShadow='md'>
-      <Container maxW='1000px' padding={4}>
-        <Box display='flex' justifyContent='space-between'>
-          <Box display='flex' justifyContent='center' alignItems='center'>
-            <Link href='/'>
-              <Text fontWeight='bold' fontSize='xl'>
-                A R T I C L E S
+    <Box bg={color} boxShadow="md">
+      <Container maxW="1000px" padding={4}>
+        <Box display="flex" justifyContent="space-between">
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Link href="/">
+              <Text fontWeight="bold" fontSize="xl">
+                A R T I C L E S S
               </Text>
             </Link>
           </Box>
 
-          <Box
-            display={['none', 'none', 'flex', 'flex']}
-            gap={3}
-            alignItems='center'
-          >
-            <Link href='/'>
-              <Text fontWeight='semibold'>Home</Text>
+          <Box display={['none', 'none', 'flex', 'flex']} gap={3} alignItems="center">
+            <Link href="/">
+              <Text fontWeight="semibold">Home</Text>
             </Link>
-            <Link href='/favourites'>
-              <Text fontWeight='semibold'>Favourites</Text>
+            <Link href="/favourites">
+              <Text fontWeight="semibold">Favourites</Text>
             </Link>
-            <Link href='/profile'>
-              <Text fontWeight='semibold'>Profile</Text>
+            <Link href="/profile">
+              <Text fontWeight="semibold">Profile</Text>
             </Link>
           </Box>
 
-          <Flex
-            gap={3}
-            justifyContent='center'
-            alignItems='center'
-            display={['none', 'none', 'flex', 'flex']}
-          >
-            <Button size='sm' onClick={toggleColorMode}>
+          <Flex gap={3} justifyContent="center" alignItems="center" display={['none', 'none', 'flex', 'flex']}>
+            <Button size="sm" onClick={toggleColorMode}>
               {colorMode === 'light' ? (
                 <Icon w={5} h={5} as={BsCloudSun} />
               ) : (
@@ -68,12 +59,10 @@ const Navbar = () => {
 
             <Button
               display={['none', 'none', 'flex', 'flex']}
-              colorScheme='red'
+              colorScheme="red"
               leftIcon={<HiOutlineLogout />}
-              size='sm'
-              onClick={() =>
-                signOut({ callbackUrl: 'http://localhost:3000/auth' })
-              }
+              size="sm"
+              onClick={() => signOut({ callbackUrl: 'http://localhost:3000/auth' })}
             >
               Sign Out
             </Button>
@@ -81,20 +70,16 @@ const Navbar = () => {
 
           <IconButton
             onClick={onOpen}
-            aria-label='Open Menu'
+            aria-label="Open Menu"
             icon={<HamburgerIcon />}
             display={['flex', 'flex', 'none', 'none']}
           />
 
-          <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
+          <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
             <DrawerOverlay />
             <DrawerContent>
-              <DrawerHeader
-                borderBottomWidth='1px'
-                display='flex'
-                justifyContent='space-between'
-              >
-                <Text fontWeight='extrabold'>A R T I C E L S</Text>
+              <DrawerHeader borderBottomWidth="1px" display="flex" justifyContent="space-between">
+                <Text fontWeight="extrabold">A R T I C E L S</Text>
 
                 <IconButton
                   onClick={toggleColorMode}
@@ -108,34 +93,32 @@ const Navbar = () => {
                 />
               </DrawerHeader>
               <DrawerBody>
-                <VStack spacing={5} justifyContent='left' alignItems='start'>
+                <VStack spacing={5} justifyContent="left" alignItems="start">
                   <Box onClick={onClose}>
-                    <Link href='/'>
-                      <Text fontWeight='semibold'>Home</Text>
+                    <Link href="/">
+                      <Text fontWeight="semibold">Home</Text>
                     </Link>
                   </Box>
                   <Box onClick={onClose}>
-                    <Link href='/favourites'>
-                      <Text fontWeight='semibold'>Favourites</Text>
+                    <Link href="/favourites">
+                      <Text fontWeight="semibold">Favourites</Text>
                     </Link>
                   </Box>
                   <Box onClick={onClose}>
-                    <Link href='/profile'>
-                      <Text fontWeight='semibold'>Profile</Text>
+                    <Link href="/profile">
+                      <Text fontWeight="semibold">Profile</Text>
                     </Link>
                   </Box>
                 </VStack>
 
                 <Button
-                  position='fixed'
-                  left='5'
-                  bottom='5'
-                  colorScheme='red'
+                  position="fixed"
+                  left="5"
+                  bottom="5"
+                  colorScheme="red"
                   leftIcon={<HiOutlineLogout />}
-                  size='sm'
-                  onClick={() =>
-                    signOut({ callbackUrl: 'http://localhost:3000/auth' })
-                  }
+                  size="sm"
+                  onClick={() => signOut({ callbackUrl: 'http://localhost:3000/auth' })}
                 >
                   Sign Out
                 </Button>
