@@ -1,5 +1,6 @@
+'use client';
+
 import React from 'react';
-import { Box, Button, Icon, useColorModeValue } from '@chakra-ui/react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import {
@@ -30,145 +31,126 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <Box>
-      <Button
+    <div>
+      <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         isDisabled={!editor.can().chain().focus().toggleBold().run()}
         isActive={editor.isActive('bold') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiBold} />
-      </Button>
-      <Button
+        <RiBold />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
         isDisabled={!editor.can().chain().focus().toggleItalic().run()}
         isActive={editor.isActive('italic') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiItalic} />
-      </Button>
-      <Button
+        <RiItalic />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
         isDisabled={!editor.can().chain().focus().toggleStrike().run()}
         isActive={editor.isActive('strike') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiStrikethrough} />
-      </Button>
-      <Button
+        <RiStrikethrough />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleCode().run()}
         isDisabled={!editor.can().chain().focus().toggleCode().run()}
         isActive={editor.isActive('code') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiCodeSSlashLine} />
-      </Button>
-      {/* <Button onClick={() => editor.chain().focus().unsetAllMarks().run()}>clear marks</Button>
-      <Button onClick={() => editor.chain().focus().clearNodes().run()}>clear nodes</Button> */}
-      <Button
+        <RiCodeSSlashLine />
+      </button>
+      {/* <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>clear marks</button>
+      <button onClick={() => editor.chain().focus().clearNodes().run()}>clear nodes</button> */}
+      <button
         onClick={() => editor.chain().focus().setParagraph().run()}
         isActive={editor.isActive('paragraph') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiParagraph} />
-      </Button>
-      <Button
+        <RiParagraph />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         isActive={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH1} />
-      </Button>
-      <Button
+        <RiH1 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         isActive={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH2} />
-      </Button>
-      <Button
+        <RiH2 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         isActive={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH3} />
-      </Button>
-      <Button
+        <RiH3 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
         isActive={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH4} />
-      </Button>
-      <Button
+        <RiH4 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
         isActive={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH5} />
-      </Button>
-      <Button
+        <RiH5 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
         isActive={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiH6} />
-      </Button>
-      <Button
+        <RiH6 />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         isActive={editor.isActive('bulletList') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiListUnordered} />
-      </Button>
-      <Button
+        <RiListUnordered />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         isActive={editor.isActive('orderedList') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiListOrdered} />
-      </Button>
-      <Button
+        <RiListOrdered />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         isActive={editor.isActive('codeBlock') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiCodeBoxLine} />
-      </Button>
-      <Button
+        <RiCodeBoxLine />
+      </button>
+      <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         isActive={editor.isActive('blockquote') ? 'is-active' : ''}
-        borderRadius={0}
       >
-        <Icon as={RiDoubleQuotesL} />
-      </Button>
-      <Button onClick={() => editor.chain().focus().setHorizontalRule().run()} borderRadius={0}>
-        <Icon as={RiSeparator} />
-      </Button>
-      <Button onClick={() => editor.chain().focus().setHardBreak().run()} borderRadius={0}>
-        <Icon as={RiTextWrap} />
-      </Button>
-      <Button
+        <RiDoubleQuotesL />
+      </button>
+      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
+        <RiSeparator />
+      </button>
+      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
+        <RiTextWrap />
+      </button>
+      <button
         onClick={() => editor.chain().focus().undo().run()}
         isDisabled={!editor.can().chain().focus().undo().run()}
-        borderRadius={0}
       >
-        <Icon as={RiArrowGoBackFill} />
-      </Button>
-      <Button
+        <RiArrowGoBackFill />
+      </button>
+      <button
         onClick={() => editor.chain().focus().redo().run()}
         isDisabled={!editor.can().chain().focus().redo().run()}
-        borderRadius={0}
       >
-        <Icon as={RiArrowGoForwardFill} />
-      </Button>
-    </Box>
+        <RiArrowGoForwardFill />
+      </button>
+    </div>
   );
 };
 
-export default ({ description, onChange, isParent, editable }) => {
-  const color = useColorModeValue('black', 'gray.400');
-
+const Editor = ({ description, onChange, isParent, editable }) => {
   const editor = useEditor({
     extensions: [StarterKit],
     editorProps: {
@@ -184,14 +166,16 @@ export default ({ description, onChange, isParent, editable }) => {
   });
 
   return (
-    <Box>
+    <div>
       {isParent && (
-        <Box marginBottom={2} display={'flex'} alignItems={'center'} borderRadius={'10px'}>
+        <div>
           <MenuBar editor={editor} />
-        </Box>
+        </div>
       )}
 
       <EditorContent editor={editor} onChange={onChange} />
-    </Box>
+    </div>
   );
 };
+
+export default Editor;
