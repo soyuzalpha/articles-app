@@ -1,25 +1,16 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import {
-  Box,
-  Container,
-  VStack,
-  Text,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-} from "@chakra-ui/react";
-import Editor from "../../components/Editor";
-import { useForm } from "react-hook-form";
-import { useSession } from "next-auth/react";
-import { useToast } from "@chakra-ui/react";
+import React, { useState } from 'react';
+import Head from 'next/head';
+import { Box, Container, VStack, Text, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import Editor from '../../components/Editor';
+import { useForm } from 'react-hook-form';
+import { useSession } from 'next-auth/react';
+import { useToast } from '@chakra-ui/react';
 
 const createPost = () => {
   const toast = useToast();
   const session = useSession();
   const { register, watch, handleSubmit } = useForm();
-  const [body, setBody] = useState("");
+  const [body, setBody] = useState('');
 
   const handleChange = (data) => {
     setBody(data);
@@ -28,18 +19,18 @@ const createPost = () => {
   const onSubmit = async () => {
     const data = {
       authorId: session.data.user.id,
-      title: watch("title"),
+      title: watch('title'),
       body: body,
     };
 
     await saveData(data);
     toast({
-      title: "Post Success.",
+      title: 'Post Success.',
       description: "You've created your post.",
-      status: "success",
+      status: 'success',
       duration: 5000,
       isClosable: true,
-      position: "bottom-left",
+      position: 'bottom-left',
     });
   };
   return (
@@ -51,15 +42,10 @@ const createPost = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container maxW="1000px" position="relative" padding={1}>
-        <VStack
-          justifyContent="normal"
-          alignItems="normal"
-          marginX="3"
-          spacing={4}
-        >
+      <Container maxW="1366px" position="relative" my={['5', 5, '10']}>
+        <VStack justifyContent="normal" alignItems="normal" marginX="3" spacing={4}>
           <Box>
-            <Text fontWeight="bold" fontSize="md">
+            <Text fontWeight="bold" fontSize="2xl">
               Create Post!
             </Text>
           </Box>
@@ -69,24 +55,24 @@ const createPost = () => {
               <FormControl>
                 <FormLabel>Title</FormLabel>
                 <Input
-                  {...register("title")}
+                  {...register('title')}
                   type="title"
                   colorScheme="whiteAlpha"
                   placeholder="Type intresting title "
+                  bg={'#303030'}
+                  border={'none'}
+                  outline={'none'}
                 />
               </FormControl>
 
               <FormControl>
-                <FormLabel>Body</FormLabel>
-                <Editor
-                  onChange={handleChange}
-                  description="Type content here"
-                  active={false}
-                />
+                <FormLabel>Content</FormLabel>
+                <Editor onChange={handleChange} isParent={true} description={'Type your content'} />
               </FormControl>
             </VStack>
+
             <Box marginTop={3}>
-              <Button type="submit" colorScheme="facebook" width="100%">
+              <Button type="submit" colorScheme="facebook">
                 Submit
               </Button>
             </Box>
@@ -100,10 +86,10 @@ const createPost = () => {
 export default createPost;
 
 export async function saveData(data) {
-  const response = await fetch("/api/post/create", {
-    method: "POST",
+  const response = await fetch('/api/post/create', {
+    method: 'POST',
     body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' },
   });
 
   if (!response.ok) {

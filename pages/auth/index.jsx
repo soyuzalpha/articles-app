@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { Box, Button, FormControl, FormLabel, Input, Stack, Text, Icon, useColorMode } from '@chakra-ui/react';
 import { FcGoogle } from 'react-icons/fc';
-import { BsGithub } from 'react-icons/bs';
+// import { BsGithub } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
