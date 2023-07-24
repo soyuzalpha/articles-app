@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Navbar from '@/components/Navbar';
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { usePathname, useRouter } from 'next/navigation';
+import Navbar from "@/components/Navbar";
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ weight: ["400", "500", "600", "700", "900"], subsets: ["latin"], variable: "--font-inter" });
 
 export default function RootLayout({ children }) {
   const router = usePathname();
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-50`}>
-        {router !== '/auth' && <Navbar />}
+        {router !== "/auth" && <Navbar />}
 
         {children}
       </body>

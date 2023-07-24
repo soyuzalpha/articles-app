@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { FcGoogle } from 'react-icons/fc';
-import { signIn } from 'next-auth/react';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { signIn } from "next-auth/react";
 
 const Auth = () => {
   const { register, watch, handleSubmit } = useForm();
 
   const googleLogin = async () => {
-    signIn('google', { callbackUrl: '/' });
+    signIn("google", { callbackUrl: "/" });
   };
 
   const onSubmit = async () => {
-    await signIn('email', {
-      email: watch('email'),
-      callbackUrl: '/',
+    await signIn("email", {
+      email: watch("email"),
+      callbackUrl: "/",
     });
   };
 
@@ -33,7 +33,7 @@ const Auth = () => {
               <div className="flex flex-col mb-3">
                 <label htmlFor="email">Email</label>
                 <input
-                  {...register('email')}
+                  {...register("email")}
                   type="email"
                   placeholder="user@example.com"
                   className="h-10 border rounded p-3 text-sm"
@@ -50,7 +50,7 @@ const Auth = () => {
             <div>
               <button
                 onClick={googleLogin}
-                className="w-full h-10 bg-white rounded text-sm flex items-center justify-center gap-3"
+                className="w-full h-10 bg-slate-200 rounded text-sm flex items-center justify-center gap-3"
               >
                 <FcGoogle size={20} />
                 Continue with Google
