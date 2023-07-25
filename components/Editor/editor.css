@@ -1,0 +1,15 @@
+.btn-editor {
+  width: 30px;
+  height: 30px;
+}
+
+.content {
+  height: 450px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e5e7eb;
+}
+
+.is-active {
+  background-color: #d1d5db;
+}

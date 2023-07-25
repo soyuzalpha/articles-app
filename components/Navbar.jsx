@@ -27,12 +27,22 @@ const Navbar = () => {
             } fixed block md:hidden bg-gray-200 top-0 w-full h-screen transition-all ease-in-out duration-300`}
           >
             <div className="flex flex-col w-full h-full gap-y-10 items-center justify-center">
-              <Link href="/blog">
-                <h1 className="text-2xl font-bold font-mono">B L O G</h1>
+              <Link href="/">
+                <h1 onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold font-mono">
+                  A R T I C L E
+                </h1>
               </Link>
 
               <Link href="/blog">
-                <h1 className="text-2xl font-bold font-mono">S A V E D</h1>
+                <h1 onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold font-mono">
+                  B L O G
+                </h1>
+              </Link>
+
+              <Link href="/saved">
+                <h1 onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold font-mono">
+                  S A V E D
+                </h1>
               </Link>
 
               <button type="button" onClick={() => logOut()} className="font-mono text-2xl">
