@@ -247,7 +247,7 @@ const Editor = ({ description, onChange, isParent, editable }) => {
         </div>
       )}
 
-      <EditorContent editor={editor} onChange={onChange} />
+      <EditorContent editor={editor} onChange={onChange} className={isParent ? 'with-bg rounded-md' : ''} />
     </div>
   );
 };

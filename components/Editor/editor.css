@@ -4,10 +4,14 @@
 }
 
 .content {
-  height: 450px;
+  height: 100%;
   padding: 10px;
-  border-radius: 5px;
+}
+
+.with-bg {
   background-color: #e5e7eb;
+  /* padding: 10px; */
+  height: 500px;
 }
 
 .is-active {

@@ -1,6 +1,9 @@
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from './api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
+import HeroImage from '@/public/hero.jpg';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'Article',
@@ -15,9 +18,28 @@ export default async function Home() {
   }
 
   return (
-    <main>
-      <div className="p-2 w-full h-screen fixed top-0 z-10 flex items-center justify-center">
-        <h1 className="text-[4em] font-mono text-center">Share Your Story Make Life Intresting</h1>
+    <main className="p-2 bg-white h-screen pt-16">
+      <div className="md:max-w-screen-xl m-auto flex flex-col-reverse md:flex-row md:items-center gap-2">
+        <div>
+          <h1 className="flex-1 text-[3.2em] uppercase tracking-tight antialiased font-sans font-bold md:w-[500px]">
+            easiest way to <span className="bg-black text-shite rounded text-white p-2">share</span> your story
+          </h1>
+
+          <p className="font-sans text-lg tracking-tight text-gray-800">Your place to share story with people</p>
+
+          <div className="mt-8">
+            <Link
+              href={'/post'}
+              className="bg-black text-white px-5 py-3 md:px-8 md:py-5 md:text-md font-sans antialiased text-sm font-bold rounded "
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center">
+          <Image src={HeroImage} alt="hero" sizes="100%" priority={true} />
+        </div>
       </div>
     </main>
   );

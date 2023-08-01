@@ -4,5 +4,5 @@ export const metadata = {
 };
 
 export default function CreatePostLayout({ children }) {
-  return <section>{children}</section>;
+  return <section className="px-5 py-20 md:py-24 md:max-w-screen-xl m-auto">{children}</section>;
 }

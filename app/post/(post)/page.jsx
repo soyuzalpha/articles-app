@@ -34,7 +34,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="px-5 pt-20">
+    <>
       <h1 className="text-xl mb-3 font-mono">Create Story</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,7 +59,7 @@ const CreatePost = () => {
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 
